@@ -1,0 +1,59 @@
+{
+    "name": "unit_test",
+    "count_name": "countT",
+    "count_end": 0,
+     "file_name": "unit_test.json",
+    "file_test": [{
+        "query": {
+            "count": "-200",
+            "nevim": "1"
+        }
+    }, {
+        "query": {
+           "nevim": "1"
+        }
+    }],
+    "data": [{
+        "function": "jsonS",
+        "result":{"type":"save","succes":true,"data":{"query":{"count":"-200","nevim":"1"}}},
+        "data": [{
+            "count": "-200",
+            "nevim": "1"
+        }, "unit_test.json"]
+    }, {
+        "function": "redisS",
+        "result":{"type":"redis","succes":true,"data":-200},
+        "data": [{
+            "count": "-200",
+            "nevim": "1"
+        }, "countT"]
+    }, {
+        "function": "jsonS",
+        "result":{"type":"save","succes":true,"data":{"query":{"nevim":"1"}}},
+        "data": [{           
+            "nevim": "1"
+        }, "unit_test.json"]
+    }, {
+        "function": "redisS",
+        "result":{"type":"redis","succes":true,"data":0},
+        "data": [{
+            "count": "200",
+            "nevim": "1"
+        }, "countT"]
+    },
+    {
+        "function": "redisS",
+        "result":{"type":"redis","succes":true,"data":"not_number"},
+        "data": [{
+            "count": "d200",
+            "nevim": "1"
+        }, "countT"]
+    },            
+    {
+        "function": "redisS",
+        "result":{"type":"redis","succes":true,"data":"not_in_query"},
+        "data": [{           
+            "nevim": "1"
+        }, "countT"]
+    }]
+}
