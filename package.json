@@ -7,7 +7,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/KristekJan/ib.git"
+        "url": "git@github.com:KristekJan/ib.git"
     },
     "dependencies": {
         "express": "4.11.x",
